@@ -2,6 +2,7 @@ import readlineSync from 'readline-sync';
 import { userName } from './greeting.js';
 
 export const terms = 'Answer "yes" if the number is even, otherwise answer "no".';
+export const congratulations = `Congratulations, ${userName}!`;
 
 const isEven = (num) => (num % 2 === 0 ? 'yes' : 'no');
 const getRandomInt = () => Math.floor(Math.random() * 100) + 1;
@@ -27,4 +28,5 @@ export const playBrainEven = () => {
     }
     i += 1;
   }
+  console.log(congratulations);
 };
