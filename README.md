@@ -9,14 +9,12 @@
 
 ### Requirements
 
-```bash
-* Mac / Linux
-* Node.js version 18 or later
-```
+- Mac / Linux
+- Node.js version 18 or later
 
 ### Install
 
-```bash
+```
 $ git clone git@github.com:ElenaEremenko/frontend-project-lvl1.git
 $ cd frontend-project-lvl1
 $ npm link
