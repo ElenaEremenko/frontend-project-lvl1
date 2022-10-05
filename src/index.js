@@ -3,12 +3,9 @@ import readlineSync from 'readline-sync';
 const playAnyGame = (terms, getPairQA) => {
   console.log('Welcome to the Brain Games!');
   const userName = readlineSync.question('May I have your name? ');
-  const phrase = `Hello, ${userName}!`;
-  console.log(phrase);
+  console.log(`Hello, ${userName}!`);
 
   console.log(terms);
-
-  const congratulations = `Congratulations, ${userName}!`;
 
   let round = 1;
   while (round <= 3) {
@@ -18,18 +15,16 @@ const playAnyGame = (terms, getPairQA) => {
     console.log(question);
 
     const answer = readlineSync.question('Your answer: ');
-    const outputIfRight = 'Correct!';
-    const outputIfWrong = `'${answer}' is wrong answer ;( Correct answer was '${result}'.\nLet's try again, ${userName}!`;
 
     if (answer === result) {
-      console.log(outputIfRight);
+      console.log('Correct!');
     } else {
-      console.log(outputIfWrong);
+      console.log(`'${answer}' is wrong answer ;( Correct answer was '${result}'.\nLet's try again, ${userName}!`);
       return;
     }
     round += 1;
   }
-  console.log(congratulations);
+  console.log(`Congratulations, ${userName}!`);
 };
 
 export default playAnyGame;
