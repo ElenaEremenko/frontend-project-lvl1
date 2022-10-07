@@ -1,17 +1,21 @@
 import getRandomInt from '../utils.js';
 import playAnyGame from '../index.js';
 
-export const terms = 'Answer "yes" if the number is even, otherwise answer "no".';
+const terms = 'Answer "yes" if the number is even, otherwise answer "no".';
+const isEven = (num) => num % 2 === 0;
 
-export const getPairQA = () => {
+const getPairQA = () => {
   const QA = [];
   const num = getRandomInt(1, 100);
-  const isEven = () => (num % 2 === 0 ? 'yes' : 'no');
   const question = `Question: ${num}`;
   QA[0] = question;
-  const result = isEven(num);
+  const result = isEven(num) ? 'yes' : 'no';
   QA[1] = result;
   return QA;
 };
 
-export { playAnyGame };
+const playEvenGame = () => {
+  playAnyGame(terms, getPairQA);
+};
+
+export default playEvenGame;
