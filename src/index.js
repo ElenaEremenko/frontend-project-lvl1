@@ -11,15 +11,15 @@ const playAnyGame = (terms, getPairQA) => {
   while (round <= 3) {
     const pair = getPairQA();
     const question = pair[0];
-    const result = pair[1];
+    const expectedAnswer = pair[1];
     console.log(question);
 
-    const answer = readlineSync.question('Your answer: ');
+    const userAnswer = readlineSync.question('Your answer: ');
 
-    if (answer === result) {
+    if (userAnswer === expectedAnswer) {
       console.log('Correct!');
     } else {
-      console.log(`'${answer}' is wrong answer ;( Correct answer was '${result}'.\nLet's try again, ${userName}!`);
+      console.log(`'${userAnswer}' is wrong answer ;( Correct answer was '${expectedAnswer}'.\nLet's try again, ${userName}!`);
       return;
     }
     round += 1;

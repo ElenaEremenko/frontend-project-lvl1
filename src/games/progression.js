@@ -1,11 +1,11 @@
-import getRandomInt from '../utils.js';
+import getRandomInteger from '../utils.js';
 import playAnyGame from '../index.js';
 
 const terms = 'What number is missing in the progression?';
 const getProgression = () => {
   const progression = [];
-  const progressionStep = getRandomInt(1, 10);
-  const firstNum = getRandomInt(0, 20);
+  const progressionStep = getRandomInteger(1, 10);
+  const firstNum = getRandomInteger(0, 20);
   let num = firstNum;
   let i = 1;
   while (i <= 10) {
@@ -18,16 +18,15 @@ const getProgression = () => {
 
 const getPairQA = () => {
   const QA = [];
-  const innerValue = getProgression();
-  const randomPosition = getRandomInt(0, 9);
-  const missingNum = innerValue[randomPosition];
-  innerValue[randomPosition] = '..';
-  const progression = innerValue.join(' ');
-  const question = `Question: ${progression}`;
+  const rawProgression = getProgression();
+  const randomPosition = getRandomInteger(0, 9);
+  const hiddenNum = rawProgression[randomPosition];
+  rawProgression[randomPosition] = '..';
+  const processedProgression = rawProgression.join(' ');
+  const question = `Question: ${processedProgression}`;
   QA[0] = question;
-  const tempResult = missingNum;
-  const result = tempResult.toString();
-  QA[1] = result;
+  const expectedAnswer = hiddenNum.toString();
+  QA[1] = expectedAnswer;
   return QA;
 };
 

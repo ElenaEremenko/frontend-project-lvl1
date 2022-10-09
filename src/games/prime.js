@@ -1,4 +1,4 @@
-import getRandomInt from '../utils.js';
+import getRandomInteger from '../utils.js';
 import playAnyGame from '../index.js';
 
 const terms = 'Answer "yes" if given number is prime. Otherwise answer "no".';
@@ -18,11 +18,11 @@ const isPrime = (num) => {
 
 const getPairQA = () => {
   const QA = [];
-  const num = getRandomInt(1, 20);
+  const num = getRandomInteger(1, 20);
   const question = `Question: ${num}`;
   QA[0] = question;
-  const result = isPrime(num) ? 'yes' : 'no';
-  QA[1] = result;
+  const expectedAnswer = isPrime(num) ? 'yes' : 'no';
+  QA[1] = expectedAnswer;
   return QA;
 };
 
