@@ -1,5 +1,5 @@
 import getRandomInteger from '../utils.js';
-import playAnyGame from '../index.js';
+import play from '../index.js';
 
 const terms = 'What number is missing in the progression?';
 const getProgression = () => {
@@ -16,22 +16,19 @@ const getProgression = () => {
   return progression;
 };
 
-const getPairQA = () => {
-  const QA = [];
+const getRound = () => {
   const rawProgression = getProgression();
   const randomPosition = getRandomInteger(0, 9);
   const hiddenNum = rawProgression[randomPosition];
   rawProgression[randomPosition] = '..';
   const processedProgression = rawProgression.join(' ');
   const question = `Question: ${processedProgression}`;
-  QA[0] = question;
   const expectedAnswer = hiddenNum.toString();
-  QA[1] = expectedAnswer;
-  return QA;
+  return [question, expectedAnswer];
 };
 
 const playProgressionGame = () => {
-  playAnyGame(terms, getPairQA);
+  play(terms, getRound);
 };
 
 export default playProgressionGame;

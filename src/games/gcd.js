@@ -1,8 +1,8 @@
 import getRandomInteger from '../utils.js';
-import playAnyGame from '../index.js';
+import play from '../index.js';
 
 const terms = 'Find the greatest common divisor of given numbers.';
-const getRightAnswer = (num1, num2) => {
+const calculate = (num1, num2) => {
   const getSmallestNum = () => (num1 >= num2 ? num2 : num1);
   const theSmallestNum = getSmallestNum();
   const getBiggestNum = () => (num1 >= num2 ? num1 : num2);
@@ -15,22 +15,19 @@ const getRightAnswer = (num1, num2) => {
       break;
     }
   }
-  return rightAnswer.toString();
+  return rightAnswer;
 };
 
-const getPairQA = () => {
-  const QA = [];
+const getRound = () => {
   const num1 = getRandomInteger(1, 15);
   const num2 = getRandomInteger(1, 15);
   const question = `Question: ${num1} ${num2}`;
-  QA[0] = question;
-  const expectedAnswer = getRightAnswer(num1, num2);
-  QA[1] = expectedAnswer;
-  return QA;
+  const expectedAnswer = String(calculate(num1, num2));
+  return [question, expectedAnswer];
 };
 
 const playGcdGame = () => {
-  playAnyGame(terms, getPairQA);
+  play(terms, getRound);
 };
 
 export default playGcdGame;

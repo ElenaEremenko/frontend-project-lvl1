@@ -1,5 +1,5 @@
 import getRandomInteger from '../utils.js';
-import playAnyGame from '../index.js';
+import play from '../index.js';
 
 const terms = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 const isPrime = (num) => {
@@ -16,18 +16,15 @@ const isPrime = (num) => {
   return true;
 };
 
-const getPairQA = () => {
-  const QA = [];
+const getRound = () => {
   const num = getRandomInteger(1, 20);
   const question = `Question: ${num}`;
-  QA[0] = question;
   const expectedAnswer = isPrime(num) ? 'yes' : 'no';
-  QA[1] = expectedAnswer;
-  return QA;
+  return [question, expectedAnswer];
 };
 
 const playPrimeGame = () => {
-  playAnyGame(terms, getPairQA);
+  play(terms, getRound);
 };
 
 export default playPrimeGame;

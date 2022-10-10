@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
 
-const playAnyGame = (terms, getPairQA) => {
+const play = (terms, getRound) => {
   console.log('Welcome to the Brain Games!');
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
@@ -8,10 +8,9 @@ const playAnyGame = (terms, getPairQA) => {
   console.log(terms);
 
   let round = 1;
-  while (round <= 3) {
-    const pair = getPairQA();
-    const question = pair[0];
-    const expectedAnswer = pair[1];
+  const roundsCount = 3;
+  while (round <= roundsCount) {
+    const [question, expectedAnswer] = getRound();
     console.log(question);
 
     const userAnswer = readlineSync.question('Your answer: ');
@@ -27,4 +26,4 @@ const playAnyGame = (terms, getPairQA) => {
   console.log(`Congratulations, ${userName}!`);
 };
 
-export default playAnyGame;
+export default play;
