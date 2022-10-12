@@ -22,7 +22,7 @@ const getRound = () => {
   const hiddenNum = rawProgression[randomPosition];
   rawProgression[randomPosition] = '..';
   const processedProgression = rawProgression.join(' ');
-  const question = `Question: ${processedProgression}`;
+  const question = processedProgression;
   const expectedAnswer = hiddenNum.toString();
   return [question, expectedAnswer];
 };

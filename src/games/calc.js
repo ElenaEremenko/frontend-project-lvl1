@@ -26,7 +26,7 @@ const getRound = () => {
   const randomOperator = operators[randomIndex];
   const num1 = getRandomInteger(1, 10);
   const num2 = getRandomInteger(1, 10);
-  const question = `Question: ${num1} ${randomOperator} ${num2}`;
+  const question = `${num1} ${randomOperator} ${num2}`;
   const expectedAnswer = String(calculate(randomOperator, num1, num2));
   return [question, expectedAnswer];
 };

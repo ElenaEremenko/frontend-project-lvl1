@@ -21,7 +21,7 @@ const getGCD = (num1, num2) => {
 const getRound = () => {
   const num1 = getRandomInteger(1, 15);
   const num2 = getRandomInteger(1, 15);
-  const question = `Question: ${num1} ${num2}`;
+  const question = `${num1} ${num2}`;
   const expectedAnswer = String(getGCD(num1, num2));
   return [question, expectedAnswer];
 };

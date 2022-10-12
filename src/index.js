@@ -11,7 +11,7 @@ const play = (terms, getRound) => {
   const roundsCount = 3;
   while (round <= roundsCount) {
     const [question, expectedAnswer] = getRound();
-    console.log(question);
+    console.log(`Question: ${question}`);
 
     const userAnswer = readlineSync.question('Your answer: ');
 
